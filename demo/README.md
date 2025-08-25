@@ -22,9 +22,9 @@ To run the Bash-based `setup.sh` script for free on Windows:
 	sudo apt install -y git curl
 	```
 
-5. **Clone your repository:**
+5. **Clone the repository:**
 	```bash
-	git clone https://github.com/Jayapreethi/der_llm.git
+	git clone https://github.com/Jayapreethi/der_llm_framework.git
 	cd der_llm
 	```
 
