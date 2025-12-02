@@ -1,35 +1,44 @@
+#!/bin/bash
+
+echo "===== DER LLM Framework Data Analysis Tests ====="
+echo ""
+
 # Test 1: Grid stability analysis  
-curl -X POST http://localhost:8000/analyze_energy_data \
+echo "Test 1: Grid Stability Analysis (1min interval)"
+curl -X POST http://localhost:8000/analyze_data \
   -H "Content-Type: application/json" \
   -d '{
     "interval": "1min",
-    "question": "Analyze this data for grid stability indicators. Look for frequency variations, voltage irregularities, and power quality issues.",
-    "model": "gpt"
+    "analysis_type": "grid_stability"
   }'
+echo -e "\n"
 
 # Test 2: Renewable energy integration
-curl -X POST http://localhost:8000/analyze_energy_data \
+echo "Test 2: Renewable Energy Integration (3min interval)"
+curl -X POST http://localhost:8000/analyze_data \
   -H "Content-Type: application/json" \
   -d '{
     "interval": "3min", 
-    "question": "Assuming this is renewable energy data, analyze the variability patterns and suggest grid integration strategies.",
-    "model": "gpt"
+    "analysis_type": "renewable_integration"
   }'
+echo -e "\n"
 
-# Test 3: Demand response opportunities
-curl -X POST http://localhost:8000/analyze_energy_data \
+# Test 3: Anomaly Detection
+echo "Test 3: Anomaly Detection (5min interval)"
+curl -X POST http://localhost:8000/detect_anomalies \
   -H "Content-Type: application/json" \
   -d '{
-    "interval": "5min",
-    "question": "Identify potential demand response opportunities and times when energy consumption could be shifted for better grid balance.",
-    "model": "gpt"
+    "interval": "5min"
   }'
+echo -e "\n"
 
-# Test 4: Predictive maintenance indicators
-curl -X POST http://localhost:8000/analyze_energy_data \
+# Test 4: Predictive Analysis
+echo "Test 4: Predictive Analysis (1min interval)"
+curl -X POST http://localhost:8000/predictive_analysis \
   -H "Content-Type: application/json" \
   -d '{
-    "interval": "1min",
-    "question": "Look for patterns that might indicate equipment maintenance needs or performance degradation in this energy system.",
-    "model": "gpt"
+    "interval": "1min"
   }'
+echo -e "\n"
+
+echo "===== Analysis Complete ====="
